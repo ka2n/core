@@ -720,6 +720,7 @@ class Validation
 	 */
 	public function _validation_min_length($val, $length)
 	{
+        $val = str_replace("\r\n", "\n", $val);
 		return $this->_empty($val) || (MBSTRING ? mb_strlen($val) : strlen($val)) >= $length;
 	}
 
@@ -732,6 +733,7 @@ class Validation
 	 */
 	public function _validation_max_length($val, $length)
 	{
+        $val = str_replace("\r\n", "\n", $val);
 		return $this->_empty($val) || (MBSTRING ? mb_strlen($val) : strlen($val)) <= $length;
 	}
 
@@ -744,6 +746,7 @@ class Validation
 	 */
 	public function _validation_exact_length($val, $length)
 	{
+        $val = str_replace("\r\n", "\n", $val);
 		return $this->_empty($val) || (MBSTRING ? mb_strlen($val) : strlen($val)) == $length;
 	}
 
